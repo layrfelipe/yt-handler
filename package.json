@@ -1,0 +1,19 @@
+{
+  "name": "yt-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "layrfelipe",
+  "license": "ISC",
+  "dependencies": {
+    "@picovoice/leopard-node": "^1.1.1",
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1",
+    "youtube-mp3-downloader": "^0.7.11",
+    "ytdl-core": "^4.11.2"
+  },
+  "type": "module"
+}
