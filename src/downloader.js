@@ -1,12 +1,13 @@
 import YoutubeMp3Downloader from "youtube-mp3-downloader";
 
 export function getMP3(id) {
+  const destination = `${process.cwd()}\\src\\assets\\`
 
   return new Promise((resolve, reject) => {
     
     var YD = new YoutubeMp3Downloader({
       "ffmpegPath": "C:/Users/layr.franca/Documents/ffmpeg-n6.0-latest-win64-lgpl-6.0/bin/ffmpeg.exe",
-      "outputPath": "C:/Users/layr.franca/Desktop/audios-from-yt",
+      "outputPath": `${destination}`,
       "youtubeVideoQuality": "highestaudio",
       "queueParallelism": 2,
       "progressTimeout": 2000,
@@ -19,7 +20,6 @@ export function getMP3(id) {
       if (err) {
         reject(err);
       } else {
-        console.log(JSON.stringify(data));
         resolve(data);
       }
     });
@@ -30,7 +30,8 @@ export function getMP3(id) {
     });
 
     YD.on("progress", function(progress) {
-      console.log(JSON.stringify(progress));
+      let percent = JSON.stringify(progress.progress.percentage.toFixed(0));
+      console.log("downloading... ", percent.slice(1, -1), "%")
     });
   });
 }
